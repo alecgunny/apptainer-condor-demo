@@ -1,0 +1,17 @@
+universe = vanilla
+
+executable = /usr/local/bin/python
+arguments = "/opt/app/app Thom"
+transfer_executable = False
+
+MY.SingularityImage = "$ENV(PWD)/app.sif"
+requirements = (HAS_SINGULARITY=?=True)
+
+output = app-$(ProcId).out
+error = app-$(ProcId).err
+log = app-$(ProcId).log
+
+request_cpus = 1
+request_memory = 10
+
+queue 4
